@@ -1,3 +1,5 @@
+'use strict'
+
 var chai = require('chai')
   ,chaiHttp = require('chai-http')
   ,expect = require('chai').expect
@@ -34,7 +36,7 @@ var chai = require('chai')
   chai.use(chaiHttp)
   describe('POST History', function(){
     it('post history', function(done){
-      this.timeout(5000);
+      this.timeout(10000);
       chai.request('https://us-central1-vtitu-191706.cloudfunctions.net/')
       .post('/createHistory')
       .send({player1: "ahmad", player2: "nathan", gameId: "tes132", winner: "nathan"})
@@ -46,7 +48,7 @@ var chai = require('chai')
       })
     })
     it('get history', function(done){
-      this.timeout(5000);
+      this.timeout(10000);
       chai.request('https://us-central1-vtitu-191706.cloudfunctions.net/')
       .get('/getHistory')
       .end(function(err, res){
@@ -57,7 +59,7 @@ var chai = require('chai')
       })
     })
     it('delete history', function(done){
-      this.timeout(5000);
+      this.timeout(10000);
       chai.request('https://us-central1-vtitu-191706.cloudfunctions.net/')
       .get('/deleteHistory')
       .end(function(err, res){
