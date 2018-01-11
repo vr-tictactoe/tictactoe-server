@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "nyc mocha --timeout 10000"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "mocha": "^4.1.0"
   },
   "devDependencies": {
-    "chai-http": "^3.0.0"
+    "chai-http": "^3.0.0",
+    "nyc": "^11.4.1"
   }
 }
