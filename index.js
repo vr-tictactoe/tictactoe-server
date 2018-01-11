@@ -4,8 +4,8 @@ var chai = require('chai')
 
   let tictactoe = (board) => {
     let winner = ''
-    
-    let checkBoard = 
+
+    let checkBoard =
     [
       `${board[0]+board[1]+board[2]},
       ${board[0]+board[3]+board[6]},
@@ -23,9 +23,9 @@ var chai = require('chai')
     }
     if(checkBoard[0].indexOf('OOO') != -1 ){
       return winner = 'O'
-    }   
-    if(checkBoard[0].indexOf('') != -1 && 
-      checkBoard[0].indexOf('XXX') === -1 && 
+    }
+    if(checkBoard[0].indexOf('') != -1 &&
+      checkBoard[0].indexOf('XXX') === -1 &&
       checkBoard[0].indexOf('OOO') === -1){
       return winner = 'DRAW'
     }
@@ -34,6 +34,7 @@ var chai = require('chai')
   chai.use(chaiHttp)
   describe('POST History', function(){
     it('post history', function(done){
+      this.timeout(5000);
       chai.request('https://us-central1-vtitu-191706.cloudfunctions.net/')
       .post('/createHistory')
       .send({player1: "ahmad", player2: "nathan", gameId: "tes132", winner: "nathan"})
@@ -45,6 +46,7 @@ var chai = require('chai')
       })
     })
     it('get history', function(done){
+      this.timeout(5000);
       chai.request('https://us-central1-vtitu-191706.cloudfunctions.net/')
       .get('/getHistory')
       .end(function(err, res){
@@ -55,6 +57,7 @@ var chai = require('chai')
       })
     })
     it('delete history', function(done){
+      this.timeout(5000);
       chai.request('https://us-central1-vtitu-191706.cloudfunctions.net/')
       .get('/deleteHistory')
       .end(function(err, res){
@@ -66,7 +69,7 @@ var chai = require('chai')
     })
 
     it('logic X Vertical Win', function(){
-      let board = 
+      let board =
       [
         'X','O','X',
         'X','O','O',
@@ -79,7 +82,7 @@ var chai = require('chai')
     })
 
     it('logic X Horizontal Win', function(){
-      let board = 
+      let board =
       [
         'X','X','X',
         'X','O','O',
@@ -92,7 +95,7 @@ var chai = require('chai')
     })
 
     it('logic O Vertical Win', function(){
-      let board = 
+      let board =
       [
         'O','O','X',
         'O','X','O',
@@ -105,7 +108,7 @@ var chai = require('chai')
     })
 
     it('logic O Horizontal Win', function(){
-      let board = 
+      let board =
       [
         'O','O','O',
         'X','O','X',
@@ -118,7 +121,7 @@ var chai = require('chai')
     })
 
     it('logic Draw', function(){
-      let board = 
+      let board =
       [
         'X','O','O',
         'O','X','X',
