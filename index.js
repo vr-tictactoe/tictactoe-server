@@ -26,7 +26,7 @@ var chai = require('chai')
     if(checkBoard[0].indexOf('OOO') != -1 ){
       return winner = 'O'
     }
-    if(checkBoard[0].indexOf('') != -1 &&
+    if(board.indexOf('') === -1 &&
       checkBoard[0].indexOf('XXX') === -1 &&
       checkBoard[0].indexOf('OOO') === -1){
       return winner = 'DRAW'
@@ -70,7 +70,7 @@ var chai = require('chai')
       })
     })
 
-    it('logic X Vertical Win', function(){
+    it('logic X Vertical, first row Win', function(){
       let board =
       [
         'X','O','X',
@@ -83,7 +83,33 @@ var chai = require('chai')
       expect(winner).not.to.be.null
     })
 
-    it('logic X Horizontal Win', function(){
+    it('logic X Vertical, second row Win', function(){
+      let board =
+      [
+        'O','X','O',
+        'O','X','X',
+        'X','X','O'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('X')
+      expect(winner).to.be.a('string')
+      expect(winner).not.to.be.null
+    })
+
+    it('logic X Vertical, third row Win', function(){
+      let board =
+      [
+        'O','O','X',
+        'O','X','X',
+        'X','O','X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('X')
+      expect(winner).to.be.a('string')
+      expect(winner).not.to.be.null
+    })
+
+    it('logic X Horizontal, first line Win', function(){
       let board =
       [
         'X','X','X',
@@ -96,7 +122,33 @@ var chai = require('chai')
       expect(winner).not.to.be.null
     })
 
-    it('logic O Vertical Win', function(){
+    it('logic X Horizontal, second line Win', function(){
+      let board =
+      [
+        'O','X','O',
+        'X','X','X',
+        'O','O','X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('X')
+      expect(winner).to.be.a('string')
+      expect(winner).not.to.be.null
+    })
+
+    it('logic X Horizontal, third line Win', function(){
+      let board =
+      [
+        'O','O','X',
+        'X','O','O',
+        'X','X','X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('X')
+      expect(winner).to.be.a('string')
+      expect(winner).not.to.be.null
+    })
+
+    it('logic O Vertical, first row Win', function(){
       let board =
       [
         'O','O','X',
@@ -109,12 +161,64 @@ var chai = require('chai')
       expect(winner).not.to.be.null
     })
 
-    it('logic O Horizontal Win', function(){
+    it('logic O Vertical, second row Win', function(){
+      let board =
+      [
+        'O','O','X',
+        'X','O','O',
+        'X','O','X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('O')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+    it('logic O Vertical, third row Win', function(){
+      let board =
+      [
+        'O','X','O',
+        'X','O','O',
+        'X','X','O'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('O')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+    it('logic O Horizontal, first line Win', function(){
       let board =
       [
         'O','O','O',
         'X','O','X',
         'X','X','O'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('O')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+    it('logic O Horizontal, second line Win', function(){
+      let board =
+      [
+        'X','O','X',
+        'O','O','O',
+        'X','X','O'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('O')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+    it('logic O Horizontal, third line Win', function(){
+      let board =
+      [
+        'X','O','X',
+        'X','X','O',
+        'O','O','O'
       ]
       let winner = tictactoe(board)
       expect(winner).to.equal('O')
