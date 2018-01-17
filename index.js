@@ -226,7 +226,55 @@ var chai = require('chai')
       expect(winner).not.to.be.null
     })
 
-    it('logic Draw', function(){
+    it('logic X Diagonal 1, X Win', function () {
+       let board = [
+         'X', 'O', 'O',
+         'O', 'X', 'O',
+         'O', 'X', 'X'
+       ]
+       let winner = tictactoe(board)
+       expect(winner).to.equal('X')
+       expect(winner).to.be.a('string');
+       expect(winner).not.to.be.null
+    })
+
+    it('logic X Diagonal 2, X Win', function () {
+      let board = [
+        'O', 'O', 'X',
+        'O', 'X', 'O',
+        'X', 'X', 'X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('X')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+    it('logic O Diagonal 1, O Win', function () {
+      let board = [
+        'O', 'X', 'O',
+        'X', 'O', 'X',
+        'X', 'X', 'O'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('O')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+     it('logic O Diagonal 2, O Win', function () {
+       let board = [
+         'O', 'X', 'O',
+         'X', 'O', 'X',
+         'O', 'X', 'X'
+       ]
+       let winner = tictactoe(board)
+       expect(winner).to.equal('O')
+       expect(winner).to.be.a('string');
+       expect(winner).not.to.be.null
+     })
+
+    it('logic Draw 1', function(){
       let board =
       [
         'X','O','O',
@@ -238,4 +286,52 @@ var chai = require('chai')
       expect(winner).to.be.a('string');
       expect(winner).not.to.be.null
     })
+
+    it('logic Draw 2', function () {
+      let board = [
+        'O', 'X', 'X',
+        'X', 'O', 'O',
+        'X', 'O', 'X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('DRAW')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+    it('logic Draw 3', function () {
+      let board = [
+        'O', 'X', 'X',
+        'X', 'O', 'O',
+        'O', 'X', 'X'
+      ]
+      let winner = tictactoe(board)
+      expect(winner).to.equal('DRAW')
+      expect(winner).to.be.a('string');
+      expect(winner).not.to.be.null
+    })
+
+     it('logic Draw 4', function () {
+       let board = [
+         'O', 'X', 'X',
+         'X', 'X', 'O',
+         'O', 'O', 'X'
+       ]
+       let winner = tictactoe(board)
+       expect(winner).to.equal('DRAW')
+       expect(winner).to.be.a('string');
+       expect(winner).not.to.be.null
+     })
+
+     it('logic Draw 5', function () {
+       let board = [
+         'O', 'X', 'O',
+         'X', 'X', 'O',
+         'X', 'O', 'X'
+       ]
+       let winner = tictactoe(board)
+       expect(winner).to.equal('DRAW')
+       expect(winner).to.be.a('string');
+       expect(winner).not.to.be.null
+     })
   })
